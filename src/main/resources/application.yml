@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: camelDemo
+    
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:orcl
+    username: ${username}
+    password: ${password}
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.Oracle10gDialect
+        format_sql: true
+    
+server:
+  context-path: /camel-demo
+  port: 8080
+  localhost: localhost
+  
+camel:
+  component:
+    servlet:
+      mapping:
+        enabled: true
+        context-path: /*
+        
