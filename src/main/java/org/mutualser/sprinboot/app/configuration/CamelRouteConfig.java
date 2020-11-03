@@ -31,7 +31,11 @@ public class CamelRouteConfig extends RouteBuilder{
   
   private void configureApiRest() {
     
-    restConfiguration().host(localHost).port(serverPort).component("servlet").enableCORS(true)
+    restConfiguration().host(localHost)
+    .port(serverPort)
+    .component("servlet").enableCORS(true)
+    .apiProperty("api.title", "REST API")
+    .apiProperty("api.version", "1.0")
     .bindingMode(RestBindingMode.json);
 
     // Cuando llegue una peticion a esa ruta, se enrute a direct:...
@@ -54,5 +58,6 @@ public class CamelRouteConfig extends RouteBuilder{
     
 
   }
+  
   
 }

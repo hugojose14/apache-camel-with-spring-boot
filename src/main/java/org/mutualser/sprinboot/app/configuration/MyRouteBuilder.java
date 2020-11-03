@@ -29,7 +29,6 @@ public class MyRouteBuilder extends RouteBuilder{
   public void configure() throws Exception {
     try {
       
-      //Se llamará al endpoint cada xxx segundos
       from("timer:simple?period=3000").to("direct:consumirApiRest").end();
       
       from("direct:consumirApiRest").to(URL_ENDPOINT)
