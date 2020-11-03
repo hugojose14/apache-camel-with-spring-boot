@@ -29,7 +29,7 @@ public class MyRouteBuilder extends RouteBuilder{
   public void configure() throws Exception {
     try {
       
-      from("timer:simple?period=3000").to("direct:consumirApiRest").end();
+      //from("timer:simple?period=3000").to("direct:consumirApiRest").end();
       
       from("direct:consumirApiRest").to(URL_ENDPOINT)
           .setHeader(Exchange.HTTP_METHOD, constant(HttpMethod.GET)).unmarshal(format)
